@@ -13,9 +13,14 @@ public class InvestorsController : ControllerBase
         _logger = logger;
     }
 
-    [HttpGet(Name = "Ping")]
-    public string Ping()
+    [HttpGet("Ping")]
+    public IActionResult Ping()
     {
-        return "Pong";
+        return Ok(new Pong());
     }
+}
+
+public sealed class Pong
+{
+    public string Response => "Pong";
 }
